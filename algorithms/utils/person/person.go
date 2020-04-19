@@ -1,4 +1,4 @@
-package algs
+package person
 
 import . "errors"
 
@@ -16,6 +16,10 @@ func NewPerson(age int) (*Person, error) {
 	}, nil
 }
 
-func (p *Person) older(other *Person) bool {
+func (p *Person) Older(other *Person) bool {
 	return p.age > other.age
+}
+
+func (p *Person) Age() int {
+	return p.age
 }
