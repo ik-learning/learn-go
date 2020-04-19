@@ -5,7 +5,7 @@ import (
 	// "fmt"
 	"testing"
 
-	assert "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func Index(vs []string, t string) int {

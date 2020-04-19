@@ -1,10 +1,10 @@
-package main
+package algs
 
 import (
 	"sync/atomic"
 	"testing"
 
-	assert "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func divisibleSumPairs(n int32, k int32, ar []int32) int32 {

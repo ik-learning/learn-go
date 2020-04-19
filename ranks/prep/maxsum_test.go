@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	assert "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func maxSubsetSum(arr []int32) int32 {

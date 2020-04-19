@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	assert "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 type responseV2 struct {

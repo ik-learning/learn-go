@@ -25,7 +25,6 @@ done
 : $PROJECT
 : $TO_RUN
 
-
 pushd $PROJECT
-go run $TO_RUN.go
+go test "${TO_RUN}"
 popd || exit

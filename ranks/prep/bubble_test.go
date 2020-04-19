@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	assert "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func countSwaps(a []int32) int {

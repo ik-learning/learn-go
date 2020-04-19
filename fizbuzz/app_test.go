@@ -2,6 +2,7 @@ package fizbuzz
 
 import (
 	"testing"
+
 	assert "github.com/stretchr/testify/assert"
 )
 

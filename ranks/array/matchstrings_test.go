@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	assert "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 // https://www.hackerrank.com/challenges/sparse-arrays/problem

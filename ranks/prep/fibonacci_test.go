@@ -3,10 +3,10 @@ package main
 import (
 	"testing"
 
-	assert "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
-var cache map[int]int = make(map[int]int)
+var cache = make(map[int]int)
 
 func fibonacci(val int) int {
 	if val == 0 {

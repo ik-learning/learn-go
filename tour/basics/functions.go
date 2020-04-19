@@ -5,7 +5,7 @@ import (
 )
 
 var c, python, java bool
-var i, j int = 1, 2
+var i, j = 1, 2
 
 func main() {
 	println(add(34, 23))

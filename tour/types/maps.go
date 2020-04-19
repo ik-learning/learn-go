@@ -9,7 +9,7 @@ type Vertex struct {
 var m map[string]Vertex
 
 var k = map[string]Vertex{
-	"Bell Labs": Vertex{
+	"Bell Labs": {
 		40.68433, -74.39967,
 	},
 	"Google": {

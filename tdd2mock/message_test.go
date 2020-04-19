@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	mock "github.com/stretchr/testify/mock"
+	"github.com/stretchr/testify/mock"
 )
 
 // smsServiceMock

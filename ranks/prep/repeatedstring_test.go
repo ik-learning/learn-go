@@ -4,14 +4,14 @@ import (
 	"strings"
 	"testing"
 
-	assert "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func repeatedString(s string, n int64) int64 {
 	remainder := n % int64(len(s))
 	multiplier := n / int64(len(s))
 	chars := strings.Split(s, "")
-	var count int = 0
+	var count = 0
 	for i := 0; i < len(s); i++ {
 		if chars[i] == "a" {
 			count += 1

@@ -6,9 +6,9 @@ import (
 )
 
 var (
-	ToBe bool = false
+	ToBe          = false
 	MaxInt uint64 = 1<<64 - 1
-	z complex128 = cmplx.Sqrt(-7 + 12i)
+	z             = cmplx.Sqrt(-7 + 12i)
 )
 
 func main() {

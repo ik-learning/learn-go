@@ -7,24 +7,13 @@ set -euo pipefail
 
 usage() { echo "Usage: $0 [-p <fib | TODO >]" 1>&2; exit 1; }
 
-
-while getopts ":p:f:" option; do
-  case $option in
-    p) export PROJECT="$OPTARG";;
-    f) export TO_RUN="$OPTARG";;
-	*) usage;;
-  esac
-done
-
-: $PROJECT
 : $TO_RUN
 
-
-pushd $PROJECT
-
-go test
-go test -bench=.
+# pushd $PROJECT
+go test ${TO_RUN}
+# go test
+# go test -bench=.
 # go test -run ${TO_RUN}*
 # echo "Benchmark Function"
 # go test --run $TO_RUN* -bench=.
-popd || exit
+# popd || exit

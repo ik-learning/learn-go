@@ -4,7 +4,7 @@ import (
 	"sort"
 	"testing"
 
-	assert "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func maximumToys(prices []int32, k int32) int32 {

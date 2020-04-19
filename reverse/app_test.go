@@ -2,6 +2,7 @@ package reverse
 
 import (
 	"testing"
+
 	assert "github.com/stretchr/testify/assert"
 )
 
