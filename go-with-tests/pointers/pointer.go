@@ -1,5 +1,7 @@
 package pointers
 
+// https://gobyexample.com/pointers
+
 import (
 	"errors"
 	"fmt"
