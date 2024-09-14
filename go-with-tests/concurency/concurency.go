@@ -1,5 +1,5 @@
 package concurrency
-
+// https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/concurrency
 type WebsiteChecker func(string) bool
 
 func CheckWebsitesSequence(checker WebsiteChecker, urls []string) map[string]bool {
