@@ -17,7 +17,7 @@ func Racer(a, b string) (winner string) {
 }
 
 func ConcurrentRacer(a, b string) (winner string, error error) {
-	return ConfigurableRacer(a, b)
+	return ConfigurableRacer(a, b, 0 * time.Second)
 }
 
 // https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/select
