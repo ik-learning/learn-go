@@ -7,21 +7,6 @@ import (
 	"sigs.k8s.io/yaml"
 )
 
-var capNonEmpty = `
-capabilities:
-  apiVersions:
-  - autoscaling/v2
-`
-
-var capEmpty = `
-capabilities:
-  apiVersions:
-`
-
-var empty = `
-capabilities:
-`
-
 type Capabilities struct {
 	APIVersions *[]string `yaml:"apiVersions"`
 }
