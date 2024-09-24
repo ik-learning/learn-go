@@ -13,7 +13,8 @@ func main() {
 	// k8sYamlCapabilities(capEmpty)
 	// k8sYamlCapabilities(empty)
 	println("debug")
-	allFields(capNonEmpty)
-	allFields(capEmpty)
-	allFields(empty)
+	// allFields(capNonEmpty)
+	// allFields(capEmpty)
+	// allFields(empty)
+	duplicates()
 }
