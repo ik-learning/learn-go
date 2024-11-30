@@ -82,7 +82,7 @@ func doSomethingV2(ch chan string) {
 
 // https://medium.com/geekculture/timeout-context-in-go-e88af0abd08d
 // https://dev.to/hgsgtk/timeout-using-context-package-in-go-1b3c
-
+// https://golangbot.com/context-timeout-cancellation/
 func main() {
 	ch := make(chan string, 1)
 	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
