@@ -15,6 +15,7 @@ https://medium.com/@povilasve/go-advanced-tips-tricks-a872503ac859
 - [Go Formatting](https://pkg.go.dev/fmt#hdr-Printing)
 - [Golang Testing](https://blog.jetbrains.com/go/2022/11/22/comprehensive-guide-to-testing-in-go/)
 - [How to test output](https://dev.to/lucassha/unit-testing-stdout-in-go-1jd)
+- [GolangBot](https://golangbot.com/)
 
 - [Test cmd](https://gianarb.it/blog/golang-mockmania-cli-command-with-cobra)
 
