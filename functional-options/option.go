@@ -1,6 +1,7 @@
 package functional_options
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -13,6 +14,7 @@ type configurator interface {
 }
 
 type Client struct {
+	cfg
 	timeout time.Duration
 }
 
@@ -23,14 +25,22 @@ func (c Client) setTimeout(timeout time.Duration) {
 func NewClient(options ...Option) *Client {
 	c := new(Client)
 	for _, option := range options {
-		option.apply(c)
+		// option.apply(c)
+		fmt.Println(option)
 	}
 	return c
+}
+
+type cfg struct {
+	addr  string
+	addrs []string
+	dsn   string
 }
 
 // clients
 
 type ClusterClient struct {
+	cfg
 	timeout time.Duration
 }
 
@@ -41,7 +51,8 @@ func (c ClusterClient) setTimeout(timeout time.Duration) {
 func NewClusterClient(options ...Option) *ClusterClient {
 	c := new(ClusterClient)
 	for _, option := range options {
-		option.apply(c)
+		// option.apply(c)
+		fmt.Println(option)
 	}
 	return c
 }
@@ -54,7 +65,9 @@ func (c *ClusterClient) setAddr(addr string) {
 	c.addrs = append(c.addrs, addr)
 }
 
-type config struct{}
+type config struct {
+	dsn string
+}
 
 type Option interface {
 	apply(conf *config)
