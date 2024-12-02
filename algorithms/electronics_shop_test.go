@@ -7,8 +7,6 @@ import (
 	// "github.com/stretchr/testify/assert"
 
 	"github.com/stretchr/testify/assert"
-
-	. "./utils"
 )
 
 func getMoneySpent(keyboards []int32, drives []int32, b int32) int32 {

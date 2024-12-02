@@ -5,8 +5,6 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
-	. "./utils"
 )
 
 func breakingRecords(scores []int32) []int32 {

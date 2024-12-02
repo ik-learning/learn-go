@@ -3,7 +3,7 @@ package algs
 import (
 	"testing"
 
-	. "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 // Return the number of games you can buy
@@ -14,19 +14,19 @@ func howManyGames(p int32, d int32, m int32, s int32) int32 {
 	credits := s - p
 	count := int32(1)
 	gameCost := p
-	for ok:=true; ok; ok = credits - gameCost > 0 {
-		if gameCost - d > m {
-			gameCost -=d
-			if credits - gameCost > 0 {
+	for ok := true; ok; ok = credits-gameCost > 0 {
+		if gameCost-d > m {
+			gameCost -= d
+			if credits-gameCost > 0 {
 				credits -= gameCost
 				count++
 			}
-		} else if gameCost == m && credits - m > 0 {
+		} else if gameCost == m && credits-m > 0 {
 			count += credits / m
 			break
-		} else if gameCost - d <= m && credits - m > 0 {
+		} else if gameCost-d <= m && credits-m > 0 {
 			gameCost = m
-			if credits - gameCost > 0 {
+			if credits-gameCost > 0 {
 				credits -= gameCost
 				count++
 			}

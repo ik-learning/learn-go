@@ -4,17 +4,15 @@ import (
 	"fmt"
 	"strconv"
 	"testing"
-
-	. "github.com/stretchr/testify/assert"
 )
 
-func findDigits(n int32) int32  {
+func findDigits(n int32) int32 {
 	inStr := fmt.Sprintf("%d", n)
 	result := int32(0)
 
 	for _, e := range inStr {
 		val, err := strconv.ParseInt(fmt.Sprintf("%c", e), 10, 32)
-		if err == nil &&  val != 0 && n%int32(val) == 0 {
+		if err == nil && val != 0 && n%int32(val) == 0 {
 			result += 1
 		}
 	}
@@ -24,7 +22,7 @@ func findDigits(n int32) int32  {
 
 func TestShouldFindDigits(t *testing.T) {
 	fixtures := [...]struct {
-		input int32
+		input    int32
 		expected int32
 	}{
 		{12, 2},
@@ -36,6 +34,3 @@ func TestShouldFindDigits(t *testing.T) {
 		Equal(t, e.expected, result, "they should be equal")
 	}
 }
-
-
-

@@ -5,8 +5,6 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
-	. "./utils"
 )
 
 func pickingNumbers(a []int32) int32 {
@@ -25,13 +23,13 @@ func pickingNumbers(a []int32) int32 {
 			max = count
 		}
 		// check +1
-		if value, exist := m[key + 1]; exist {
+		if value, exist := m[key+1]; exist {
 			val := count + value
 			if max <= val {
 				max = val
 			}
 		}
-		if value, exist := m[key - 1]; exist {
+		if value, exist := m[key-1]; exist {
 			val := count + value
 			if max <= val {
 				max = val

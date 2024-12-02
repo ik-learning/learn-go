@@ -4,11 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	// "github.com/stretchr/testify/assert"
-
 	"github.com/stretchr/testify/assert"
-
-	. "./utils"
 )
 
 func migratoryBirds(arr []int32) int32 {

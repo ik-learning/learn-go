@@ -2,8 +2,6 @@ package algs
 
 import (
 	"testing"
-
-	. "./utils/person"
 )
 
 func TestNewPersonPositiveAge(t *testing.T) {

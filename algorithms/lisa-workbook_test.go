@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	. "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func workbook(k int32, arr []int32) int32 {

@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	. "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 // from 1700 to 1917 Julian Calendar
@@ -21,10 +21,10 @@ func dayOfProgrammer(year int32) string {
 
 func TestShouldFindDayOfProgrammer(t *testing.T) {
 	fixtures := [...]struct {
-		input int32
+		input    int32
 		expected string
 	}{
-		{ 2016, "12.09.2016"},
+		{2016, "12.09.2016"},
 	}
 	for _, e := range fixtures {
 		result := dayOfProgrammer(e.input)

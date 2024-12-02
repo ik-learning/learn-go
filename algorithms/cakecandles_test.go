@@ -4,8 +4,6 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
-	. "./utils"
 )
 
 func birthdayCakeCandles(ar []int32) int32 {

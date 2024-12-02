@@ -3,20 +3,18 @@ package algs
 import (
 	"math"
 	"testing"
-
-	. "github.com/stretchr/testify/assert"
 )
 
 func appendAndDelete(s string, t string, k int32) string {
 	if s == t {
-		if k%2 == 0 && k > 1{
+		if k%2 == 0 && k > 1 {
 			return "Yes"
-		} else if int32(len(s)/2) < k && int32(len(s)) != k{
+		} else if int32(len(s)/2) < k && int32(len(s)) != k {
 			return "Yes"
 		}
 	}
 	common := ""
-	for i:=0;i<len(s) && i < len(t);i++{
+	for i := 0; i < len(s) && i < len(t); i++ {
 		if s[i] == t[i] {
 			common += string(s[i])
 		} else {
@@ -29,24 +27,24 @@ func appendAndDelete(s string, t string, k int32) string {
 			return "Yes"
 		}
 	}
-    ops := int32(math.Abs(float64((len(common) - len(s))+(len(common)-len(t)))))
-    if ops == k {
-    	return "Yes"
-    } else if (ops - k) % 2 == 0 && (ops -k) < 0 {
-	    return "Yes"
-    }
-    // perform full deletion
-    if k > int32(len(s) + len(t)) {
-    	return "Yes"
-    }
+	ops := int32(math.Abs(float64((len(common) - len(s)) + (len(common) - len(t)))))
+	if ops == k {
+		return "Yes"
+	} else if (ops-k)%2 == 0 && (ops-k) < 0 {
+		return "Yes"
+	}
+	// perform full deletion
+	if k > int32(len(s)+len(t)) {
+		return "Yes"
+	}
 	return "No"
 }
 
-func TestShouldAppendAndDelete(t *testing.T)  {
+func TestShouldAppendAndDelete(t *testing.T) {
 	fixtures := [...]struct {
-		initial string
-		desired string
-		steps int32
+		initial  string
+		desired  string
+		steps    int32
 		expected string
 	}{
 		{"aba", "aba", 2, "Yes"},
@@ -64,4 +62,3 @@ func TestShouldAppendAndDelete(t *testing.T)  {
 		Equal(t, e.expected, result, "they should be equal")
 	}
 }
-
