@@ -3,9 +3,10 @@ package utils
 import (
 	"encoding/json"
 	"io/ioutil"
-
-	. "./fixtures"
 )
+
+type TestRecordsInt struct {
+}
 
 func ReadFixturesInt(filename string) TestRecordsInt {
 	file, _ := ioutil.ReadFile(filename)
@@ -14,11 +15,17 @@ func ReadFixturesInt(filename string) TestRecordsInt {
 	return data
 }
 
+type TestRecordsIntV2 struct {
+}
+
 func ReadFixturesIntV2(filename string) TestRecordsIntV2 {
 	file, _ := ioutil.ReadFile(filename)
 	data := TestRecordsIntV2{}
 	_ = json.Unmarshal([]byte(file), &data)
 	return data
+}
+
+type TestRecordsIntV3 struct {
 }
 
 func ReadFixturesIntV3(filename string) TestRecordsIntV3 {
