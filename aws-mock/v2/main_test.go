@@ -1,5 +1,7 @@
 package v2
 
+// https://xebia.com/blog/stubbing-aws-service-calls-in-golang/
+
 import (
 	"bytes"
 	"context"
