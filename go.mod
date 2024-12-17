@@ -3,12 +3,14 @@ module github.com/ik-learning/learn-go
 go 1.23.0
 
 require (
+	github.com/approvals/go-approval-tests v0.0.0-20241211183344-15d1ffb738a9
 	github.com/aws/aws-lambda-go v1.47.0
 	github.com/aws/aws-sdk-go v1.55.5
 	github.com/aws/aws-sdk-go-v2 v1.32.6
 	github.com/aws/aws-sdk-go-v2/config v1.28.6
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.70.0
 	github.com/awsdocs/aws-doc-sdk-examples/gov2/testtools v0.0.0-20241129154536-054c03e82c88
+	github.com/gomarkdown/markdown v0.0.0-20241205020045-f7e15b2f3e62
 	github.com/stretchr/testify v1.10.0
 	github.com/urfave/cli v1.22.16
 	gopkg.in/yaml.v3 v3.0.1
