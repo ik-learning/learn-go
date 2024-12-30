@@ -337,15 +337,6 @@ var defaultConfig = &Config{
 	NAT64Networks:               []string{},
 }
 
-// func (a *Application) generateManPage(c *ParseContext) error {
-// 	a.Writer(os.Stdout)
-// 	if err := a.UsageForContextWithTemplate(c, 2, ManPageTemplate); err != nil {
-// 		return err
-// 	}
-// 	a.terminate(0)
-// 	return nil
-// }
-
 func generateMarkdownPage(c *kingpin.ParseContext) error {
 	log.Println("enabling profiler")
 	return nil
