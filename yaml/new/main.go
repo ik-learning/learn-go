@@ -17,13 +17,29 @@ a:
     Line2
 `
 
+var doc = `
+s:
+  - a:
+      b: u1
+      c: get1
+      d: i1
+  - w:
+      c: bad
+      e:
+        - a:
+            b: u2
+            c: get2
+            d: i2
+`
+
 func main() {
-	path, err := yaml.PathString("$..a.b[0].c")
+	fmt.Println("New Library")
+	path, err := yaml.PathString("$.s[*].a.c")
 	if err != nil {
 		log.Fatalf("error: %v", err)
 	}
 	fmt.Println("path:", path.String())
-	n, err := path.ReadNode(strings.NewReader(data))
+	n, err := path.ReadNode(strings.NewReader(doc))
 	if err != nil {
 		log.Fatalf("error: %v", err)
 	}
