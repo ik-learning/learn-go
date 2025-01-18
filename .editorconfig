@@ -1,12 +1,10 @@
 # top-most EditorConfig file
-root = true
-
 [*]
 end_of_line = lf
 charset = utf-8
 indent_style = space
 indent_size = 4
-insert_final_newline = false
+insert_final_newline = true
 trim_trailing_whitespace = true
 ij_continuation_indent_size = 8
 ij_formatter_off_tag = @formatter:off
