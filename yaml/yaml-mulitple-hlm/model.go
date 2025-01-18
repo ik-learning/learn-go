@@ -108,15 +108,15 @@ type TestSuite struct {
 		MinorVersion string   `yaml:"minorVersion"`
 		APIVersions  []string `yaml:"apiVersions"`
 	}
-	KubernetesProvider KubernetesFakeClientProvider `yaml:"kubernetesProvider"`
-	Tests              []*TestJob
+	// KubernetesProvider KubernetesFakeClientProvider `yaml:"kubernetesProvider"`
+	// Tests              []*TestJob
 	// where the test suite file located
-	definitionFile string
+	// definitionFile string
 	// route indicate which chart in the dependency hierarchy
 	// like "parent-chart", "parent-charts/charts/child-chart"
-	chartRoute string
+	// chartRoute string
 	// if true, indicates that this was created from a helm rendered file
-	fromRender bool
+	// fromRender bool
 	// An identifier to append to snapshot files
-	SnapshotId string `yaml:"snapshotId"`
+	// SnapshotId string `yaml:"snapshotId"`
 }

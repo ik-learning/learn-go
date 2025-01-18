@@ -1,9 +1,10 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"log"
-	"strings"
+	"os"
 
 	"github.com/goccy/go-yaml"
 )
@@ -17,23 +18,14 @@ type Config struct {
 
 func main() {
 	// YAML string with multiple documents
-	yamlStr := `
-host: "example1.com"
-port: 443
-ssl: true
----
-# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/refs/heads/main/schema/helm-testsuite.json
-host: "example2.com"
-port: 80
-ssl: false
----
-host: "example3.com"
-port: 8080
-ssl: true
-`
+	content, err := os.ReadFile("yaml/yaml-mulitple/test.yaml")
+
+	if err != nil {
+		log.Fatalf("Error reading file: %v", err)
+	}
 
 	// Create a YAML decoder for processing multiple documents
-	decoder := yaml.NewDecoder(strings.NewReader(yamlStr))
+	decoder := yaml.NewDecoder(bytes.NewReader(content))
 
 	var configs []Config
 	for {

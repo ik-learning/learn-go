@@ -15,17 +15,17 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error reading file: %v", err)
 	}
-	fmt.Println(string(content))
 	decoder := yaml.NewDecoder(bytes.NewReader(content))
 
 	var suites []TestSuite
 	for {
 		var s TestSuite
 		if err := decoder.Decode(&s); err != nil {
-			fmt.Println("line 43 error", err)
-			break
+			if err.Error() == "EOF" {
+				break
+			}
+			log.Fatalf("Error decoding YAML: %v", err)
 		}
-
 		suites = append(suites, s)
 	}
 

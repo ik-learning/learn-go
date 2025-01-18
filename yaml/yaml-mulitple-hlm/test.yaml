@@ -9,3 +9,13 @@ tests:
     asserts:
       - isKind:
           of: Deployment
+---
+suite: should have second test separator test suite
+templates:
+  - deployment.yaml
+tests:
+  - it: should work with single separator
+    template: deployment.yaml
+    asserts:
+      - isKind:
+          of: Deployment
