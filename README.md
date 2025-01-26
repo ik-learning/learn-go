@@ -18,6 +18,7 @@ https://medium.com/@povilasve/go-advanced-tips-tricks-a872503ac859
 - [GolangBot](https://golangbot.com/)
 
 - [Test cmd](https://gianarb.it/blog/golang-mockmania-cli-command-with-cobra)
+- [Functional options](https://golang.cafe/blog/golang-functional-options-pattern.html)
 
 ## Commands
 
