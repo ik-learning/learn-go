@@ -19,13 +19,23 @@ https://medium.com/@povilasve/go-advanced-tips-tricks-a872503ac859
 - [GolangBot](https://golangbot.com/)
 
 - [Test cmd](https://gianarb.it/blog/golang-mockmania-cli-command-with-cobra)
-- [Functional options](https://golang.cafe/blog/golang-functional-options-pattern.html)
-- [Type aliases](https://www.bytesizego.com/blog/golang-type-alias)
 
 ## Learn Go
 
 - [learn go v1](https://quii.gitbook.io/learn-go-with-tests)
 - [learn go v2](https://www.practical-go-lessons.com/chap-34-benchmarks)
+- [go 1.24 benchmarking](https://www.bytesizego.com/blog/go-124-new-benchmark-function)
+- [more go blogs](https://www.bytesizego.com/blog)
+
+### Hints
+
+- [Functional options](https://golang.cafe/blog/golang-functional-options-pattern.html)
+- [Type aliases](https://www.bytesizego.com/blog/golang-type-alias)
+
+### StyleGuides
+
+- [Effective GO](https://go.dev/doc/effective_go)
+- [Google Go styleguide](https://google.github.io/styleguide/go/)
 
 ## Commands
 
