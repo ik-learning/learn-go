@@ -19,6 +19,7 @@ https://medium.com/@povilasve/go-advanced-tips-tricks-a872503ac859
 
 - [Test cmd](https://gianarb.it/blog/golang-mockmania-cli-command-with-cobra)
 - [Functional options](https://golang.cafe/blog/golang-functional-options-pattern.html)
+- [Type aliases](https://www.bytesizego.com/blog/golang-type-alias)
 
 ## Commands
 
