@@ -25,5 +25,6 @@ https://medium.com/@povilasve/go-advanced-tips-tricks-a872503ac859
 
 ```sh
 go test -bench=.
+
 go test -cover
 ```
