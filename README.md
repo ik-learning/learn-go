@@ -3,6 +3,7 @@ Golang refreshment
 
 
 ## Examples
+
 https://github.com/gofogo/aws-sdk-go-v2
 
 ## Tips and Tricks
@@ -20,6 +21,11 @@ https://medium.com/@povilasve/go-advanced-tips-tricks-a872503ac859
 - [Test cmd](https://gianarb.it/blog/golang-mockmania-cli-command-with-cobra)
 - [Functional options](https://golang.cafe/blog/golang-functional-options-pattern.html)
 - [Type aliases](https://www.bytesizego.com/blog/golang-type-alias)
+
+## Learn Go
+
+- [learn go v1](https://quii.gitbook.io/learn-go-with-tests)
+- [learn go v2](https://www.practical-go-lessons.com/chap-34-benchmarks)
 
 ## Commands
 
