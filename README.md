@@ -31,6 +31,7 @@ https://medium.com/@povilasve/go-advanced-tips-tricks-a872503ac859
 
 - [Functional options](https://golang.cafe/blog/golang-functional-options-pattern.html)
 - [Type aliases](https://www.bytesizego.com/blog/golang-type-alias)
+- [Type aliases v2](https://go.dev/blog/alias-names)
 
 ### StyleGuides
 
