@@ -15,7 +15,36 @@ import (
 )
 
 func main() {
-	write()
+	read()
+}
+
+func read() {
+	path, _ := os.Getwd()
+	file, err := os.Open(fmt.Sprintf("%s/aws/aws-zones-tags/zones.yaml", path))
+	if err != nil {
+		log.Fatalf("failed to open file: %v", err)
+	}
+	defer file.Close()
+	decoder := yaml.NewDecoder(file)
+	var zones HostedZonesR
+	if err := decoder.Decode(&zones); err != nil {
+		log.Fatalf("failed to decode zones from YAML, %v", err)
+	}
+	fmt.Println(len(zones.Zones))
+	// for _, zone := range zones.Zones {
+	// 	log.Printf("Hosted zone %s has ID %s", zone.Name, zone.ID)
+	// 	// for _, tag := range zone.Tags {
+	// 	// 	log.Printf("Tag %s has value %s", *tag.Key, *tag.Value)
+	// 	// }
+	// }
+
+	zoneTags := map[string][]*Tag{}
+
+	for _, zone := range zones.Zones {
+		zoneTags[zone.ID] = zone.Tags
+	}
+
+	fmt.Println(zoneTags)
 }
 
 func write() {
@@ -96,6 +125,15 @@ func fetchTags(client *route53.Client, id *string) []*Tag {
 
 func cleanZoneID(id string) string {
 	return strings.TrimPrefix(id, "/hostedzone/")
+}
+
+type HostedZonesR struct {
+	Zones []*HostedZoneR `yaml:"zones"`
+}
+type HostedZoneR struct {
+	Name string
+	ID   string
+	Tags []*Tag `yaml:"tags"`
 }
 
 type HostedZones struct {

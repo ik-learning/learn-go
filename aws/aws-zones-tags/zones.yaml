@@ -1,3 +1,10 @@
+# AWS zones fixtures with tags
+# number of zones 160+ (root domain + subdomains)
+# root domain ex.com
+# subdomains examples in the form of
+# - x1.ex.com
+# - ........
+# - x7.x6.x5.x4.x3.x2.x1.ex.com
 zones:
 - name: ex.com.
   id: /hostedzone/Z10242883PKPS38KA4S6C
