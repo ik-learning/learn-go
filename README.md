@@ -27,6 +27,10 @@ https://medium.com/@povilasve/go-advanced-tips-tricks-a872503ac859
 - [go 1.24 benchmarking](https://www.bytesizego.com/blog/go-124-new-benchmark-function)
 - [more go blogs](https://www.bytesizego.com/blog)
 
+## Code Generation
+
+- https://dev.to/hlubek/metaprogramming-with-go-or-how-to-build-code-generators-that-parse-go-code-2k3j
+
 ### Hints
 
 - [Functional options](https://golang.cafe/blog/golang-functional-options-pattern.html)
