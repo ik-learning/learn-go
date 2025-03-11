@@ -44,21 +44,6 @@ func NewPrometheusMetrics() *PrometheusMetrics {
 	}
 }
 
-var (
-	erifiedAAAARecords = NewGaugeOpts(
-		prometheus.GaugeOpts{
-			Namespace: "external_dns",
-			Subsystem: "controller",
-			Name:      "verified_aaaa_records",
-			Help:      "Number of DNS AAAA-records that exists both in source and registry.",
-		},
-	)
-)
-
-func init() {
-	RegisterMetric.MustRegister(erifiedAAAARecords)
-}
-
 type GaugeMetric struct {
 	Metric
 	Gauge    prometheus.Gauge
