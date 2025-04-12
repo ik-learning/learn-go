@@ -13,9 +13,12 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/ecr"
+	"github.com/aws/aws-sdk-go-v2/service/sts"
+	"github.com/aws/aws-sdk-go-v2/service/sts/types"
 )
 
 type ECRAuthenticator struct {
+	stsClient *sts.Client
 }
 
 const (
@@ -30,6 +33,10 @@ var (
 )
 
 const (
+	roleArn = "arn:aws:iam::048958980748:role/GitlabCI"
+)
+
+const (
 	REGION    = "eu-west-1"
 	LOGIN_CMD = `
 login=$(echo %s | docker login --password-stdin --username %s %s)
@@ -41,7 +48,7 @@ func main() {
 	arn := accounts["010438477961"] + repository
 	// Tags()
 	a := ECRAuthenticator{}
-	c, err := a.Authenticate(arn)
+	c, err := a.AuthenticateWithAssume(arn)
 	if err != nil {
 		fmt.Println("UPS:", err)
 	} else {
@@ -108,4 +115,66 @@ func (a *ECRAuthenticator) Authenticate(input string) (string, error) {
 	result := fmt.Sprintf(LOGIN_CMD, password, username, "010438477961.dkr.ecr.eu-west-1.amazonaws.com")
 
 	return result, nil
+}
+
+func (e *ECRAuthenticator) AuthenticateWithAssume(input string) (string, error) {
+	if e.stsClient == nil {
+		cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithRegion(region))
+		if err != nil {
+			return "", fmt.Errorf("unable to load SDK config, %v", err)
+		}
+		e.stsClient = sts.NewFromConfig(cfg)
+	}
+
+	roleInput := sts.AssumeRoleInput{
+		RoleArn:         aws.String(roleArn),
+		RoleSessionName: aws.String("session"),
+	}
+	response, err := e.stsClient.AssumeRole(context.Background(), &roleInput)
+	if err != nil {
+		return "", fmt.Errorf("failed to assume role, %v", err)
+	}
+
+	fmt.Println("response creds:", response)
+
+	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithRegion(REGION))
+	if err != nil {
+		return "", fmt.Errorf("unable to load SDK config, %v", err)
+	}
+
+	svc := ecr.NewFromConfig(cfg)
+	token, err := svc.GetAuthorizationToken(context.TODO(), &ecr.GetAuthorizationTokenInput{})
+	if err != nil {
+		return "", fmt.Errorf("failed to get authorization token, %v", err)
+	}
+
+	var decoded string
+	for _, authData := range token.AuthorizationData {
+		token, err := base64.StdEncoding.DecodeString(aws.ToString(authData.AuthorizationToken))
+		if err != nil {
+			return "", fmt.Errorf("failed to decode authorization token, %v", err)
+		}
+		decoded = string(token)
+	}
+	tokenParts := strings.SplitN(decoded, ":", 2)
+	if len(tokenParts) != 2 {
+		return "", fmt.Errorf("invalid authorization token format")
+	}
+	username := tokenParts[0]
+	password := tokenParts[1]
+
+	result := fmt.Sprintf(LOGIN_CMD, password, username, "010438477961.dkr.ecr.eu-west-1.amazonaws.com")
+
+	return result, nil
+}
+
+func getCredentialProvider(creds *types.Credentials) aws.CredentialsProviderFunc {
+	return func(ctx context.Context) (aws.Credentials, error) {
+		c := &aws.Credentials{
+			AccessKeyID:     aws.ToString(creds.AccessKeyId),
+			SecretAccessKey: aws.ToString(creds.SecretAccessKey),
+			SessionToken:    aws.ToString(creds.SessionToken),
+		}
+		return *c, nil
+	}
 }
